@@ -1,2 +1,3 @@
 # SQL-Queries
-Collection of SQL practices
+This repository is a collection of SQL practice queries designed to help refresh and strengthen core querying skills. It includes hands-on examples using commonly used techniques such as DATEADD, DATEDIFF, various types of joins (including self joins), and Common Table Expressions (CTEs). Advanced topics like recursive CTEs and window functions are also covered, including RANK(), ROW_NUMBER(), LEAD(), LAG(), MIN(), and MAX(). The goal of this repository is to serve as a quick reference and practice space for revisiting essential SQL concepts and improving query-writing efficiency.
+
