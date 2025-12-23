@@ -20,4 +20,13 @@ INSERT INTO emp_details VALUES (9,  'Simon', 8, 2000, 'Business Analyst');
 INSERT INTO emp_details VALUES (10, 'Akshay', 8, 2500, 'Java Developer');
 commit;
 
---- Solution:
+/*** Solution using recursive cte: ***/
+  with cte as
+  (select *
+  from emp_details 
+  where name = 'Asha'
+  union all 
+  select e.*
+  from cte 
+  join emp_details e on e.manager_id = cte.id)
+  select * from cte;
