@@ -110,3 +110,35 @@ from cte y3
 join cte y4 on y3.month_id = y4.month_id
 where y3.year_id = 2003 and y4.year_id = 2004
 order by y3.month_id
+
+-- Given a employees and departments table, 
+--select the top 3 departments with at least ten employees and rank them according to the percentage of their employees making over 100K in salary.
+employees table
+Column	Type
+id	INTEGER
+first_name	VARCHAR
+last_name	VARCHAR
+salary	INTEGER
+department_id	INTEGER
+
+departments table
+Column	Type
+id	INTEGER
+name	VARCHAR
+
+Expected Output
+Column	Type
+percentage_over_100k	FLOAT
+department_name	VARCHAR
+number_of_employees	INTEGER
+
+--Solution:
+select sum(case when e.salary > 100000 then 1 else 0 end)/count(e.id) percentage_over_100K,
+d.name,
+count(e.id) number_of_emloyees
+from employees e 
+join departments d on e.department_id = e.id 
+group by d.name
+having count(e.id) >= 10
+order by 1 desc
+limit 3;
